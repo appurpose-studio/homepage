@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appurpose Studio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        ocean: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .fade-in {
+            animation: fadeIn 1s ease-out forwards;
+            opacity: 0;
+        }
+        .fade-in-delay {
+            animation: fadeIn 1s ease-out 0.3s forwards;
+            opacity: 0;
+        }
+        .fade-in-delay-2 {
+            animation: fadeIn 1s ease-out 0.6s forwards;
+            opacity: 0;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .hero-image {
+            object-fit: cover;
+            object-position: center;
+        }
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="font-sans antialiased bg-white text-gray-800">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glass-nav border-b border-white/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="text-xl font-bold text-ocean-900 tracking-tight">
+                        Appurpose Studio
+                    </a>
+                </div>
+                <div class="hidden sm:flex sm:space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-ocean-600 px-3 py-2 text-sm font-medium transition-colors duration-200">
+                        Home
+                    </a>
+                    <a href="pages/privacy.html" class="text-gray-700 hover:text-ocean-600 px-3 py-2 text-sm font-medium transition-colors duration-200">
+                        Privacy Policy
+                    </a>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="sm:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-ocean-600 p-2">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden sm:hidden glass-nav border-t border-gray-200">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block text-gray-700 hover:text-ocean-600 px-3 py-2 text-base font-medium">Home</a>
+                <a href="pages/privacy.html" class="block text-gray-700 hover:text-ocean-600 px-3 py-2 text-base font-medium">Privacy Policy</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative w-full min-h-screen flex items-center justify-center overflow-hidden">
+        <!-- Background Image -->
+        <div class="absolute inset-0">
+            <img src="assets/images/banner.png" alt="Appurpose Studio Banner" class="w-full h-full hero-image">
+            <div class="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/30"></div>
+        </div>
+
+        <!-- Content -->
+        <div class="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+            <h1 class="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-white font-bold tracking-tight drop-shadow-2xl fade-in">
+                Appurpose
+            </h1>
+            <h2 class="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white/90 font-medium tracking-wide drop-shadow-xl mt-2 fade-in-delay">
+                Studio
+            </h2>
+            <p class="mt-8 text-lg sm:text-xl text-white/80 font-light max-w-2xl mx-auto fade-in-delay-2 drop-shadow-lg">
+                Crafting purposeful digital experiences
+            </p>
+            <div class="mt-10 fade-in-delay-2">
+                <a href="#about" class="inline-flex items-center px-8 py-3 border-2 border-white/80 text-white font-medium rounded-full hover:bg-white hover:text-ocean-900 transition-all duration-300 backdrop-blur-sm">
+                    Discover More
+                    <svg class="ml-2 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <svg class="h-6 w-6 text-white/70" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-gray-900 mb-4">
+                    About Us
+                </h2>
+                <div class="w-24 h-1 bg-ocean-500 mx-auto rounded-full"></div>
+            </div>
+            <div class="max-w-3xl mx-auto text-center">
+                <p class="text-lg text-gray-600 leading-relaxed">
+                    Appurpose Studio is dedicated to building innovative mobile applications that make a difference. 
+                    We believe in creating digital experiences that are not only functional but also meaningful 
+                    and enjoyable for our users.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-24 bg-ocean-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-gray-900 mb-4">
+                    Our Approach
+                </h2>
+                <div class="w-24 h-1 bg-ocean-500 mx-auto rounded-full"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div class="w-14 h-14 bg-ocean-100 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="h-7 w-7 text-ocean-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Mobile First</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Designed and optimized for mobile devices, ensuring smooth performance and intuitive user experiences.
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div class="w-14 h-14 bg-ocean-100 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="h-7 w-7 text-ocean-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Privacy Focused</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Your data stays on your device. We prioritize privacy and never collect personal information without consent.
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div class="w-14 h-14 bg-ocean-100 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="h-7 w-7 text-ocean-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Purpose Driven</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Every feature is designed with intention. We build apps that solve real problems and add genuine value.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-24 bg-ocean-900 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute inset-0" style="background-image: url('assets/images/banner.png'); background-size: cover; background-position: center; filter: blur(10px);"></div>
+        </div>
+        <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white mb-6">
+                Get in Touch
+            </h2>
+            <p class="text-lg text-ocean-200 mb-10 max-w-2xl mx-auto">
+                Have questions or suggestions? We'd love to hear from you.
+            </p>
+            <a href="mailto:appurpose@gmail.com" class="inline-flex items-center px-8 py-4 bg-white text-ocean-900 font-semibold rounded-full hover:bg-ocean-50 transition-colors duration-300 shadow-lg">
+                <svg class="mr-2 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                appurpose@gmail.com
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <span class="text-xl font-bold text-white">Appurpose Studio</span>
+                    <p class="mt-2 text-sm">Crafting purposeful digital experiences</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="index.html" class="hover:text-white transition-colors duration-200">Home</a>
+                    <a href="pages/privacy.html" class="hover:text-white transition-colors duration-200">Privacy Policy</a>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-800 text-center text-sm">
+                <p>&copy; 2024 Appurpose Studio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
